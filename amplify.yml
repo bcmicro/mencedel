@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+    build:
+      commands:
+        - timeout 28000 python3 index.py
+        - npm install env-cmd
+        - npm run build:$BUILD_ENV
+        - ./time
+        
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+ 
